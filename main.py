@@ -1,4 +1,6 @@
-# This entrypoint file to be used in development. Start by reading README.md
+import capture_results  # ✅ new
+capture_results.start()  # ✅ new (start capture)
+
 import demographic_data_analyzer
 from unittest import main
 
@@ -6,4 +8,5 @@ from unittest import main
 demographic_data_analyzer.calculate_demographic_data()
 
 # Run unit tests automatically
-main(module='test_module', exit=False)
+program = main(module="test_module", exit=False)  # ✅ new: capture program
+capture_results.finish(program)                  # ✅ new: write results
